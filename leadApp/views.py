@@ -12,7 +12,8 @@ from rest_framework.filters import SearchFilter,OrderingFilter   #searchfilter-o
 class LeadCreateListView(CreateAPIView,ListAPIView):
     serializer_class=LeadSerializer
     queryset=Lead.objects.all()
-    authentication_classes=[authentication.BasicAuthentication]
+    # authentication_classes=[authentication.BasicAuthentication]
+    authentication_classes=[authentication.TokenAuthentication]   
     permission_classes=[permissions.IsAuthenticated]
     filter_backends=[        #source,status basil search cheyth edkan. 3 clasum leadlistviewlk apply cheyunnu filter_backends enna keywordil
         DjangoFilterBackend,
