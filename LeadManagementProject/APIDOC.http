@@ -1,0 +1,84 @@
+#API call for lead create
+###
+POST http://127.0.0.1:8000/lead
+Content-Type: application/json
+Authorization: Basic admin:admin
+
+{
+  "name":"Rahul",
+  "phone":9087898808,
+  "email":"rahul@gmal.com",
+  "course":"Python Fullstack",
+  "source":"referral",
+  "status":"Contacted",
+  "notes":"Evening batch preferred"
+}
+
+#API call for list all records
+###
+GET http://127.0.0.1:8000/lead
+Authorization: Basic admin:admin
+
+#API call for lead detail view
+###
+GET http://127.0.0.1:8000/lead/detail/1
+Authorization: Basic admin:admin
+
+#API call for update a lead data
+###
+PUT http://127.0.0.1:8000/lead/detail/1
+Content-Type: application/json
+Authorization: Basic admin:admin
+
+{
+ "id": 1,
+  "name": "Anu",
+  "phone": "9087898909",
+  "email": "anu@gmal.com",
+  "course": "Python Fullstack",
+  "source": "website",
+  "status": "Contacted",
+  "added_date": "2026-10-15T15:53:33.373912Z",
+  "notes": "Evening batch preferred"
+}
+
+#API call for delete a lead data
+###
+DELETE http://127.0.0.1:8000/lead/detail/1
+Authorization: Basic admin:admin
+
+#API call for status level lead list
+###
+GET http://127.0.0.1:8000/lead/status
+Authorization:  Basic admin:admin
+
+#API call for ordering leads based on name
+###
+GET  http://127.0.0.1:8000/lead?ordering=name
+Authorization: Basic admin:admin
+
+#API call for ordering leads based on added date in ascending order(ordering=added_date - ingne koduthal asc orderil an sort cheyth tharuka)
+###
+GET http://127.0.0.1:8000/lead?ordering=added_date   
+Authorization: Basic admin:admin
+
+#API call for ordering leads based on added date in descending order(ordering=-added_date - desc orderil sort cheyth tharum)
+###
+GET http://127.0.0.1:8000/lead?ordering=-added_date   
+Authorization: Basic admin:admin
+
+#API call for filter leads based on status
+###
+GET http://127.0.0.1:8000/lead?search=New
+Authorization: Basic admin:admin
+
+#API call for filter leads based on status
+###
+GET  http://127.0.0.1:8000/lead?status=Contacted
+Authorization: Basic admin:admin
+
+#API call for filter leads based on status(2 condition kodukunna case & vech separate akam,search=contacted referral ngnem kodukam)
+###
+GET  http://127.0.0.1:8000/lead?status=Contacted&source=referral
+Authorization: Basic admin:admin
+
